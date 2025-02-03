@@ -1,6 +1,6 @@
 # Steganography
 
-This script allows you to hide text in a digital image. \\
+This script allows you to hide text in a digital image.  
 To do this, it modifies the least significant bits of the RGB components of the image pixels.
 
 # Examples
