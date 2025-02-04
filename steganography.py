@@ -162,14 +162,33 @@ class Steganography:
 
   @staticmethod
   def __parse_args():
-    parser = argparse.ArgumentParser(prog="steganography.py")
-    parser.add_argument('-e', '--encode', action='store_true')
-    parser.add_argument('-d', '--decode', action='store_true')
-    parser.add_argument('-l', '--list', action='store_true')
-    parser.add_argument('--infile', type=str)
-    parser.add_argument('--outfile', type=str)
-    parser.add_argument('--format', type=str)
-    parser.add_argument('-t', '--text', type=str)
+    parser = argparse.ArgumentParser(prog="steganography.py", \
+      description="This tool allows you to hide text in an image.")
+    parser.add_argument("-e", "--encode", action="store_true", \
+      help="Encoding mode (cannot be used with -d option)")
+    parser.add_argument("-d", "--decode", action="store_true", \
+      help="Decoding mode (cannot be used with -e option)")
+    parser.add_argument("-l", "--list", action="store_true", \
+      help="Lists the output image formats that can be used.")
+    parser.add_argument("--infile", type=str, \
+      help="Input file. With the -d option: " +
+           "The text contained in the file will be decoded." +
+           "With the -e option: The file will be used to encode " +
+           "text and produce the output image (containing the text)")
+    parser.add_argument("--outfile", type=str, \
+      help="The file representing the image that " +
+           "will be generated with the hidden text." +
+           "(Must be used with the -e option.)")
+    parser.add_argument("--format", type=str,
+      help="Format of the image that will be generated " +
+           "(specified with the --outfile option)." +
+           "If this option is not specified, "+
+           "the image format specified with --infile " +
+           "will be used to generate the output image." +
+           "(This option can be used with the -e option)")
+    parser.add_argument("-t", "--text", type=str,
+      help="The text to be hidden in the image." +
+           "(This option must be used with the -e option)")
     args = parser.parse_args()
     if Steganography.__check_args(args) is False:
       parser.print_help()
