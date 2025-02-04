@@ -40,10 +40,10 @@ The pixel will be transformed as follows:
 
 The pixel can then be read as follows:
   ```ditaa {cmd=true args=["-E"]}
-      R               G             B
-  11111|100       111111|00     111111|01
-       |                |             |
-       +----------------+-------------+
+      R               G               B
+  11111|100       111111|00       111111|01
+       |                |               |
+       +----------------+---------------+
                         |
                     100 00 01
   ```
